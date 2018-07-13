@@ -1,0 +1,10 @@
+.back-div {
+	width: 1280px;
+	height: 720px;
+	color: rgb(178,185,201);
+	font-size: 20px;
+}
+
+.focus-div {
+	position: absolute;
+}

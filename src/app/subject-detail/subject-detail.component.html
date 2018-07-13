@@ -1,0 +1,4 @@
+<div class='back-div' *ngIf="subjectpage != null && subjectareas != null" [style.background-image]='getBackgroud(subjectpage.background)'>
+	<a href="javascript:vpid(0)" *ngFor='let subjectarea of subjectareas' [style.width.px]='setPosition(subjectarea.location,2)' [style.height.px]='setPosition(subjectarea.location,3)' [style.left.px]='setPosition(subjectarea.location,0)' [style.top.px]='setPosition(subjectarea.location,1)' class='focus-div' appALinkFocus>
+	</a>
+</div>

@@ -1,0 +1,24 @@
+.BP-div {
+	width: 50%;
+	float: left;
+}
+
+.BPSection {
+	position: relative;
+	overflow: hidden;
+	clear: both;
+}
+
+.pick-div {
+	float: left;
+}
+
+.pick-div img {
+	width: 6em;
+	height: 2.8em;
+}
+
+.BP-div {
+	overflow: hidden;
+	clear: both;
+}

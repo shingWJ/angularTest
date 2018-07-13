@@ -1,0 +1,13 @@
+<div>
+	<div class='history'>
+	</div>
+	<div class='slider'>
+	</div>
+	<div class='latest'>
+	</div>
+	<div class='belt'>
+	</div>
+	<div class='recommend'>
+		<img *ngFor='let item of items' src={{item.image}} (click)="get2Positon(item)">
+	</div>
+</div>

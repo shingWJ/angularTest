@@ -1,0 +1,24 @@
+.hero-img {
+	width: 4.5em;
+	height: 2.25em;
+}
+
+.hero-div {
+	width: 4.5em;
+	font-size: 0.01em;
+	float: left;
+	margin-left: 0.25em;
+	text-align: center;
+}
+
+.hero-div span {
+	white-space: nowrap;
+}
+
+.all-heroes {
+	overflow: hidden;
+}
+
+.hero-img:hover {
+	transform: scale(1.3);
+}

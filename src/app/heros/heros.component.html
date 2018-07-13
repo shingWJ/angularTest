@@ -1,0 +1,8 @@
+<nav class='each-nav' (click)='fetch2Detail("program_ccms_823926")' appMenuHighLight>电影详情页</nav>
+<div class='all-heros' class="all-heroes">
+	<div appDisabledStyle *ngFor = "let hero of heros" class="hero-div">
+		<img src={{hero.src}} class='hero-img' (click)="select(hero)">
+		<span>{{hero.name}}</span>
+	</div>
+	<!-- <p>hhh</p> -->
+</div>

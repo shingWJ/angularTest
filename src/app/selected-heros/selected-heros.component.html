@@ -1,0 +1,15 @@
+<div class="BPSection">
+	<div class='BP-div'>
+		<p>天辉</p>
+		<div *ngFor='let hero of radiantHeroes' class="pick-div" [@flyIn]="'in'">
+			<img src={{hero.src}}>
+		</div>
+	</div>
+	<div class="BP-div">
+		<p>夜魇</p>
+		<div *ngFor='let hero of direHeroes' class="pick-div" [@flyIn]="'in'">
+			<img src={{hero.src}}>
+		</div>
+	</div>
+</div>
+<app-heros (onSelected)="onSelected($event)"></app-heros>

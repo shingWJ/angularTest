@@ -1,0 +1,163 @@
+<div class='back-div' *ngIf='vod != null'>
+	<div class='film-menber'>
+		<div class='directors'>
+			<div>导演</div>
+			<div class='name-class'>
+				<label *ngFor = 'let director of str2Array(vod.directors)'>{{director}}</label>
+				<!-- <label>{{vod.directors}}}</label> -->
+			</div>
+		</div>
+		<div class='actors'>
+			<div>演职员</div>
+			<div class='name-class'>
+				<label *ngFor = 'let actor of str2Array(vod.actors)'>{{actor}}</label>
+				<!-- <label>罗根·保罗</label>
+				<label>佩顿·李斯特</label>
+				<label>莉娅·马瑞</label>
+				<label>卡勒姆·我系</label>
+				<label>瑞恩·纽曼</label> -->
+			</div>
+		</div>
+	</div>
+	<div class='film-detail'>
+		<label class='vod-name'>{{vod.title}}</label>
+		<label class='name-class'>{{vod.country}} · {{vod.year}} · {{timeLength(vod.displayRunTime)}}分钟 · {{vod.tags}}</label>
+		<div class='name-class vod-profile'>{{vod.desc}}</div>
+	</div>
+	<div class='language-play'>
+		<a href="javascript:void(0)" appVodPlay appALinkFocus class='vod-language' (click)="turn2Bp()">
+		<div class='vod-language-div'>
+			<div>
+				<label class="language-choice" style="padding-top: 40px;">预告片</label>
+			</div>
+			<div style="display: none;" class='play-choose'>
+				<span class="glyphicon glyphicon-play" style="color: black;"></span>
+				<label class="choosed-language">预告片</label>
+			</div>
+		</div>
+		</a>
+		<a href="#" appVodPlay appALinkFocus class='vod-language'>
+		<div class='vod-language-div'>
+			<div>
+				<label class="language-choice">中文版</label>
+				<label class="choosed-language">普通话</label>
+			</div>
+			<div style="display: none;" class='play-choose'>
+				<span class="glyphicon glyphicon-play" style="color: black;"></span>
+				<label class="choosed-language">普通话</label>
+			</div>
+		</div>
+		</a>
+		<a href='#' appVodPlay appALinkFocus class='vod-language'>
+		<div class='vod-language-div'>
+			<div>
+				<label class="language-choice">原声版</label>
+				<label class="choosed-language">英语</label>
+			</div>
+			<div style="display: none;" class='play-choose'>
+				<span class="glyphicon glyphicon-play" style="color: black;"></span>
+				<label class="choosed-language">英语</label>
+			</div>
+		</div>
+		</a>
+		<a href='#' appALinkFocus class='vod-language'>
+		<div class='vod-language-div'>
+			<span class="glyphicon glyphicon-star-empty"></span>
+			<label class="choosed-language">收藏</label>
+		</div>
+		</a>
+	</div>
+	<div class='film-icon'>
+		<img src={{vod.icon}}>
+	</div>
+
+	<div class="guess-div">
+		<app-guess (onSelectVod)="onSelectVod($event)" [id]="id" class={{id}}></app-guess>
+	</div>
+
+	<div class="popular-div">
+		<label>人气排行</label>
+		<app-guess (onSelectVod)="onSelectVod($event)" [id]="id" class={{id}}></app-guess>
+		<app-guess (onSelectVod)="onSelectVod($event)" [id]="id" class={{id}}></app-guess>
+	</div>
+</div>
+<div class='back-div' *ngIf='mix != null'>
+	<div class='film-menber'>
+		<div class='directors'>
+			<div>导演</div>
+			<div class='name-class'>
+				<label *ngFor = 'let director of (mix.directors | stringSpliceArray)'>{{director}}</label>
+				<!-- <label>{{vod.directors}}}</label> -->
+			</div>
+		</div>
+		<div class='actors'>
+			<div>演职员</div>
+			<div class='name-class'>
+				<label *ngFor = 'let actor of (mix.actors | stringSpliceArray)'>{{actor}}</label>
+				<!-- <label>罗根·保罗</label>
+				<label>佩顿·李斯特</label>
+				<label>莉娅·马瑞</label>
+				<label>卡勒姆·我系</label>
+				<label>瑞恩·纽曼</label> -->
+			</div>
+		</div>
+	</div>
+	<div class='film-detail'>
+		<label class='vod-name'>{{mix.title}}</label>
+		<label class='name-class'>{{mix.country}} · {{mix.year}} · {{mix.displayRunTime | timeMinutes}}分钟 · {{mix.tags}}</label>
+		<div class='name-class vod-profile'>{{mix.desc}}</div>
+	</div>
+	<div class='language-play'>
+		<div *ngFor = 'let mixProgram of mixPrograms'>
+		<a href="#" appVodPlay *ngIf = 'mixProgram.language == "预告片"'>
+		<div class='vod-language'>
+			<div>
+				<label class="language-choice" style="padding-top: 40px;">预告片</label>
+			</div>
+			<div style="display: none;" class='play-choose'>
+				<span class="glyphicon glyphicon-play" style="color: black;"></span>
+				<label class="choosed-language">预告片</label>
+			</div>
+		</div>
+		</a>
+		<a href="#" appVodPlay *ngIf = 'mixProgram.language == "中文版"'>
+		<div class='vod-language'>
+			<div>
+				<label class="language-choice">中文版</label>
+				<label class="choosed-language">{{mixProgram.vodDub}}</label>
+			</div>
+			<div style="display: none;" class='play-choose'>
+				<span class="glyphicon glyphicon-play" style="color: black;"></span>
+				<label class="choosed-language">{{mixProgram.vodDub}}</label>
+			</div>
+		</div>
+		</a>
+		<a href='#' appVodPlay *ngIf = 'mixProgram.language == "原声版"'>
+		<div class='vod-language'>
+			<div>
+				<label class="language-choice">原声版</label>
+				<label class="choosed-language">{{mixProgram.vodDub}}</label>
+			</div>
+			<div style="display: none;" class='play-choose'>
+				<span class="glyphicon glyphicon-play" style="color: black;"></span>
+				<label class="choosed-language">{{mixProgram.vodDub}}</label>
+			</div>
+		</div>
+		</a>
+		</div>
+		<a href='#'>
+		<div class='vod-language'>
+			<span class="glyphicon glyphicon-star-empty"></span>
+			<label class="choosed-language">收藏</label>
+		</div>
+		</a>
+	</div>
+	<div class='film-icon'>
+		<img src={{mix.icon}}>
+	</div>
+
+	<div class="guess-div">
+		<app-guess (onSelectVod)="onSelectVod($event)"></app-guess>
+	</div>
+</div>
+

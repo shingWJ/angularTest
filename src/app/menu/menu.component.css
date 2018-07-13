@@ -1,0 +1,30 @@
+.menu-div {
+	position: fixed;
+	bottom: 0em;
+	clear: both;
+	width: 100%;
+	background: #ccc;
+	color: white;
+}
+
+.each-nav {
+	float: left;
+	width: 33%;
+	/*margin-left: 0.2em;*/
+	text-align: center;
+	border-right: 1px solid #333;
+}
+
+a {
+	text-decoration:none
+}
+
+.each-nav:active {
+	background: blue;
+	color: red;
+}
+
+.each-nav:click {
+	background: blue;
+	color: red;
+}

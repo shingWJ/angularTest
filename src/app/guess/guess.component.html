@@ -1,0 +1,11 @@
+<div>
+	<label>猜你喜欢</label>
+	<div *ngIf='guesses && guesses.length > 0'>
+		<a *ngFor='let guess of guesses' href='javascript:void(0)' (click)="guessLink(guess.code)" appFontImageFocus>
+			<div class='superscript'>1</div>
+			<img src={{guess.icon}}>
+			<div class='img-title'>{{guess.title}}</div>
+		</a>
+	</div>
+</div>
+ 

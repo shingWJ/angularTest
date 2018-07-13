@@ -1,0 +1,28 @@
+.each-topic {
+	/*float: left;*/
+	position: absolute;
+	border: 1px solid #ccc;
+	margin-left: 20px;
+	width: 100px;
+	text-align: center;
+	height: 50px;
+}
+
+.belts-div {
+	clear: both;
+	position: absolute;
+	left: 40px;
+	width: 1000px;
+	overflow: hidden;
+	height: 50px;
+}
+
+.go-left {
+	position: absolute;
+	left: 20px;
+}
+
+.go-right {
+	position: absolute;
+	left: 1050px;
+}

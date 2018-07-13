@@ -1,0 +1,11 @@
+<div>
+	<span class='go-left' [style.display]="leftShown"><</span>
+	<div class="belts-div">
+		<a href="#" *ngFor='let belt of belts; let i = index' (focus)='focus2Show(i)'>
+			<div class='each-topic' [style.left.px]='100+i*140'>
+				{{belt}}{{i}}
+			</div>
+		</a>
+	</div>
+	<span class='go-right' [style.display]="rightShown">></span>
+</div>
